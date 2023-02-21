@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <div class="mb-3">
+        <h1 class="center-text"> History </h1>
+    </div>
+    <div class="mb-3">
+        <table  class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Stock</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Date Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    {% if item.shares > 0 %}
+                        <tr class="table-danger">
+                            <td>{{ item.stock }}</td>
+                            <td>{{ item.shares }}</td>
+                            <td>{{ item.price | usd }}</td>
+                            <td>{{ item.date_time }}</td>
+                        </tr>
+                    {% else %}
+                        <tr class="table-success">
+                            <td>{{ item.stock }}</td>
+                            <td>{{ item.shares }}</td>
+                            <td>{{ item.price | usd }}</td>
+                            <td>{{ item.date_time }}</td>
+                        </tr>
+                    {% endif %}
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

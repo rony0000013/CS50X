@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+    <div class="mb-3">
+        <h1 class="text-center">Quoted</h1>
+    </div>
+    <div class="mb-3">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-primary">Name :- {{ quote.name }}</li>
+            <li class="list-group-item list-group-item-success">Price :- {{ quote.price | usd}}</li>
+            <li class="list-group-item list-group-item-info">Symbol :- {{ quote.symbol }}</li>
+        </ul>
+    </div>
+
+{% endblock %}
